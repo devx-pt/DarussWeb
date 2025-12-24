@@ -1,0 +1,7 @@
+.news-container { max-width: 800px; margin: 40px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 32px; }
+.news-title { font-size: 2em; margin-bottom: 24px; color: #2c3e50; }
+.news-item { border-bottom: 1px solid #eee; padding: 20px 0; }
+.news-item:last-child { border-bottom: none; }
+.news-date { color: #888; font-size: 0.95em; margin-bottom: 6px; }
+.news-headline { font-size: 1.2em; font-weight: bold; color: #007bff; margin-bottom: 6px; }
+.news-content { color: #333; }
