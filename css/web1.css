@@ -1,25 +1,7 @@
-.btn {
-  padding: 12px 20px;
-  border-radius: 6px;
-  font-size: 16px;
-  display: inline-block;
-}
 
-.btn-link {
-  background: #2196F3;
-  color: white;
-  text-decoration: none;
-}
-
-.container {
-  position: relative;
-} 
 
 .top-right-buttons {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-
+  margin-left: auto;
   display: flex;
   gap: 10px;   /* ระยะห่างระหว่างปุ่ม */
 }
@@ -89,7 +71,7 @@
 .golo {
     width: 80px;
     position: absolute;
-    top: -40px;           /* ดันโลโก้ขึ้นไปด้านบน */
+    top: -40px;           /* ดันโลโก้บนป้อบอั้บ */
     left: 50%;
     transform: translateX(-50%);
 }
@@ -112,6 +94,9 @@
 }
 .name-above input {
     width: 170px;
+}
+.name-above1 input {
+    width: 340px;
 }
 
 .name-above {
@@ -168,8 +153,8 @@ button[type="submit"] {
 .popup2-content {
     background: white;
     padding: 30px;
-    width: 550px;
-    height: 550px;
+    width: 380px;
+    height: 480px;
     border-radius: 20px;
     position: relative;
 }
@@ -189,3 +174,10 @@ button[type="submit"] {
 }
 
 
+.news-container { max-width: 800px; margin: 40px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 32px; }
+.news-title { font-size: 2em; margin-bottom: 24px; color: #2c3e50; }
+.news-item { border-bottom: 1px solid #eee; padding: 20px 0; }
+.news-item:last-child { border-bottom: none; }
+.news-date { color: #888; font-size: 0.95em; margin-bottom: 6px; }
+.news-headline { font-size: 1.2em; font-weight: bold; color: #007bff; margin-bottom: 6px; }
+.news-content { color: #333; }
