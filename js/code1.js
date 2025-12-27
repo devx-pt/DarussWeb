@@ -1,12 +1,15 @@
 function openPopup(id) {
-  document.getElementById('popup1').style.display = 'none';
-  document.getElementById('popup2').style.display = 'none';
- // เปิดเฉพาะตัวที่กด
+  closeAllPopups();
   document.getElementById(id).style.display = 'flex';
 }
 
 function closePopup(id) {
   document.getElementById(id).style.display = 'none';
+}
+
+function closeAllPopups() {
+  if (document.getElementById('popup1')) document.getElementById('popup1').style.display = 'none';
+  if (document.getElementById('popup2')) document.getElementById('popup2').style.display = 'none';
 }
 
 // ลบข้อมูล
@@ -15,17 +18,27 @@ function removeStudent(index) {
     saveData();
     render();
 }
-// โหลดข้อมูลตอนเปิดเว็บ
-function login() {
-  let user = document.getElementById("login-username").value;
-  let pass = document.getElementById("login-password").value;
 
-  // กำหนด user / password ตัวอย่าง
-  if (user === "admin" && pass === "1234") {
-    // บันทึกสถานะการล็อกอิน
-    localStorage.setItem("login", "true");
-    window.location.href = "news.html";
-  } else {
-    alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
-  }
-}
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const username = document.getElementById('login-username').value;
+  const password = document.getElementById('login-password').value;
+  fetch('php/login.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      // Success: reload or redirect, or close popup
+      alert('เข้าสู่ระบบสำเร็จ!');
+      closePopup('popup2');
+      // location.reload(); // Uncomment to reload page
+    } else {
+      // Fail: show error
+      alert('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง');
+    }
+  })
+  .catch(() => alert('เกิดข้อผิดพลาดในการเชื่อมต่อ'));
+});
